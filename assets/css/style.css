@@ -1,0 +1,26 @@
+.header {
+    background-color: rgb(68, 68, 68);
+    color: whitesmoke;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 0px;
+}
+.searchCity {
+    margin-right: 20px;
+    height: 540px;
+    background-color:  rgba(245, 244, 244, 0.973);
+}
+.cityResult {
+    padding: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    height: 300px;
+    border-style: solid;
+    border-color: lightgrey;
+    border-width: 1px;
+    border-radius: 5px;
+}
+.forecast {
+    height: 200px;
+}

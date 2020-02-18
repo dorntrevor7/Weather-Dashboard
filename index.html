@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="row">
+        <div class="col-12">
+            <h1 class="header">Weather Dashboard</h1>
+        </div>
+    </header>
+
+    <main>
+        <div class="row">
+            <section class="col-3 searchCity">
+                <h4>Search for a City:</h4>
+                <div class="col"></div>
+                <input class="form-control" type="text" class="fas fa-search"><button></button>
+            </section>
+
+            <div class="col">
+                <section class="row cityResult">
+                </section>
+
+                <section class="row forecast">
+                    <h3>5-Day Forecast:</h3>
+                </section>
+            </div>
+        </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
