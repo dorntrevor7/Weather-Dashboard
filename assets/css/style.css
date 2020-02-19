@@ -1,3 +1,4 @@
+/* style of the header  */
 .header {
     background-color: rgb(68, 68, 68);
     color: whitesmoke;
@@ -6,11 +7,13 @@
     padding-bottom: 10px;
     margin-bottom: 0px;
 }
+/* style for search city */
 .searchCity {
     margin-right: 20px;
     height: 540px;
     background-color:  rgba(245, 244, 244, 0.973);
 }
+/* style for cityresults */
 .cityResult {
     padding: 20px;
     margin-bottom: 20px;
@@ -21,6 +24,11 @@
     border-width: 1px;
     border-radius: 5px;
 }
-.forecast {
-    height: 200px;
+/* style for the forecast */
+.cast{
+    padding: 10px;
+    border-radius: 5px;
+    margin-left: 20px;
+    color: white;
+    background-color: rgb(0, 140, 255);
 }
