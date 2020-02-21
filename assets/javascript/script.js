@@ -12,7 +12,7 @@ var $forecast = $(".forecast")
 // Forecast function
 function currentWeather() {
     var searchValue = $("input").val().trim()
-    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + searchValue + "&appid=09335e290f36cab7997b39556d93e753&units=imperial";
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + searchValue + "&appid=09335e290f36cab7997b39556d93e753&units=imperial";
 
     // requesting the data 
     $.ajax({
@@ -37,9 +37,10 @@ function currentWeather() {
             // Retrieves the time Data
             var time = moment().format('L');
             // image icon
-            var image = $("<img>").attr("src", "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
+            var image = $("<img>").attr("src", "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
+            console.log(image)
             // appending the time to the city name
-            $cityName.append(" " + time + " " + image);
+            $cityName.append(time, image);
             // Displays the city name
             $data.append($cityName);
             // retrieve the temp
@@ -64,7 +65,7 @@ function currentWeather() {
 function forecast() {
 
     var searchValue = $("input").val().trim()
-    var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + searchValue + "&appid=09335e290f36cab7997b39556d93e753&units=imperial"
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + searchValue + "&appid=09335e290f36cab7997b39556d93e753&units=imperial"
 
     // requesting the data 
     $.ajax({
@@ -79,10 +80,11 @@ function forecast() {
             console.log(data);
 
             for (var i = 0; i < 5; i++) {
-  
+
                 var $data = $("<div>").addClass("cast");
                 var $date = $("<h5>").text(moment(data.list[i].dt).format("L"));
                 console.log(moment(data.list[i].dt).format("L"));
+                var image = $("<img>").attr("src", "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
                 var $temp = $("<p>").text("temp: " + data.list[i].main.temp + " °F");
                 console.log(data.list[i].main.temp);
                 var $humidity = $("<p>").text("humidity: " + data.list[i].main.humidity + " %");
@@ -95,10 +97,10 @@ function forecast() {
                 $("#cast").append($data);
             }
         })
-        
+
 };
 
-$("button").on("click", function click () {
+$("button").on("click", function click() {
 
     var searchValue = $("input").val().trim()
     var $cityLi = $("<button>").text(searchValue);
@@ -109,7 +111,7 @@ $("button").on("click", function click () {
     forecast();
 });
 
-$(document).on("click", ".cityButton", function (){
+$(document).on("click", ".cityButton", function () {
 
     currentWeather();
     forecast();
