@@ -1,15 +1,6 @@
 
 
-// Weather Homework URLS: 
-// var currentWeather =  "http://api.openweathermap.org/data/2.5/weather?q=" + searchValue + "&appid=7ba67ac190f85fdba2e2dc6b9d32e93c&units=imperial";
-// Forecast: "http://api.openweathermap.org/data/2.5/forecast?q=" + searchValue + "&appid=7ba67ac190f85fdba2e2dc6b9d32e93c&units=imperial"
-// Icon: "http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png"
-
-var $forecast = $(".forecast")
-
-
-// Weather functions
-// Forecast function
+// current weather section function
 function currentWeather() {
     var searchValue = $("input").val().trim()
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + searchValue + "&appid=09335e290f36cab7997b39556d93e753&units=imperial";
@@ -61,7 +52,7 @@ function currentWeather() {
         });
 }
 
-// On any button click
+// forecast section function
 function forecast() {
 
     var searchValue = $("input").val().trim()
@@ -80,27 +71,31 @@ function forecast() {
             console.log(data);
 
             for (var i = 0; i < 5; i++) {
-
+                // contains each loop day of forecast in a div
                 var $data = $("<div>").addClass("cast");
+
+                // declaring variables as html elements and setting their texts
                 var $date = $("<h5>").text(moment(data.list[i].dt).format("L"));
-                console.log(moment(data.list[i].dt).format("L"));
-                var image = $("<img>").attr("src", "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
+                var $image = $("<img>").attr("src", "https://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png");
                 var $temp = $("<p>").text("temp: " + data.list[i].main.temp + " °F");
-                console.log(data.list[i].main.temp);
                 var $humidity = $("<p>").text("humidity: " + data.list[i].main.humidity + " %");
-                console.log(data.list[i].main.humidity);
+
+                // appending all the declared variabels to the div thats conatians each days forecast
                 $data.append(
                     $date,
+                    $image,
                     $temp,
                     $humidity
                 )
+
+                // appending the $data div to display on the page
                 $("#cast").append($data);
             }
         })
 
 };
 
-$("button").on("click", function click() {
+$("button").on("click", function buttonCity() {
 
     var searchValue = $("input").val().trim()
     var $cityLi = $("<button>").text(searchValue);
@@ -112,7 +107,8 @@ $("button").on("click", function click() {
 });
 
 $(document).on("click", ".cityButton", function () {
-
+    // runs the functions when the button is clicked
+    buttonCity();
     currentWeather();
     forecast();
 });
