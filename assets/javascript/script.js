@@ -20,7 +20,7 @@ function currentWeather() {
             // Creates a div to hold the city 
             var $data = $("<div>")
             // Retrieves the City name Data
-            var cityName = data.name;
+            var cityName = data.name + " ";
             // Creates an element to have the city name displayed
             var $cityName = $("<h2>").text(cityName);
             // Displays the city name
@@ -70,12 +70,13 @@ function forecast() {
 
             console.log(data);
 
-            for (var i = 0; i < 5; i++) {
+            for (var i = 0; i < 41; i+= 8) {
                 // contains each loop day of forecast in a div
                 var $data = $("<div>").addClass("cast");
 
                 // declaring variables as html elements and setting their texts
-                var $date = $("<h5>").text(moment(data.list[i].dt).format("L"));
+                var $date = $("<h5>").text(moment(data.list[i].dt_txt).format("L"));
+                console.log(data.list[i].dt_txt);
                 var $image = $("<img>").attr("src", "https://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png");
                 var $temp = $("<p>").text("temp: " + data.list[i].main.temp + " °F");
                 var $humidity = $("<p>").text("humidity: " + data.list[i].main.humidity + " %");
@@ -97,9 +98,13 @@ function forecast() {
 
 $("button").on("click", function buttonCity() {
 
+    var li = $("<div>").addClass("row");
     var searchValue = $("input").val().trim()
-    var $cityLi = $("<button>").text(searchValue);
-    $cityLi.addClass("cityButton");
+    var searchValueUC = searchValue.toUpperCase();
+    var $cityLi = $("<button>").text(searchValueUC);
+    $cityLi.addClass("col cityBtn");
+    $(li).append($cityLi);
+
     $("#searchInput").append($cityLi);
 
     currentWeather();
