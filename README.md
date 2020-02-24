@@ -18,5 +18,13 @@ WHEN I click on a city in the search history
 THEN I am again presented with current and future conditions for that city
 ```
 
+<br>
+
+The following image demonstrates on the computer:
+
+![SC Weather Dashboard computer display](assets/imgs/weather-dashboard-sc.png)
+
+<br>
+
 Lets check the weather!! 
  [Weather Dashboard](https://dorntrevor7.github.io/Weather-Dashboard/);
